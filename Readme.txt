@@ -44,5 +44,13 @@ git push -u origin main
 …or push an existing repository from the command line
 
 git remote add origin https://github.com/parhelia1/StockMarket.git
-git branch -M main
-git push -u origin main
+git branch -M master
+git push -u origin master
+
+
+
+nakon izmjena:
+
+git add .
+git commit -m "neka napomena"
+git push
