@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">Stock Portfolio</a>
@@ -27,13 +28,15 @@
             <a class="nav-link" href="about.html">About</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-warning" type="submit">Search</button>
+        <form class="d-flex" action="/" method="POST">
+          <input class="form-control me-2" type="search" placeholder="Lookup Stock Quote" aria-label="Search"
+            name="stock_ticker">
+          <button class="btn btn-outline-secondary" type="submit">Lookup</button>
         </form>
       </div>
     </div>
   </nav>
+
   <div class="container">
     {{{body}}}
   </div>

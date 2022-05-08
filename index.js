@@ -6,10 +6,14 @@ const app = express();
 const path = require('path');
 
 const request = require('request');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 5000;
 
 const { engine } = require('express-handlebars');
+
+//use body-parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //  API KEY pk_8a651a9cd09c4dc2a5bbefde92cccd37
 //creat call AP func.
@@ -32,7 +36,7 @@ app.set('view engine', 'handlebars')
 app.set('views', './views');
 
 const otherstuff = 'Hello this is other stuff...';
-//set handlebar routes
+//set handlebar GET index routes
 app.get('/', (req, res) => {
     call_api(function(doneAPI) {
         res.render('home', {
@@ -42,6 +46,17 @@ app.get('/', (req, res) => {
     });
 });
 
+//set handlebar POSTindex routes
+app.post('/', (req, res) => {
+    call_api(function(doneAPI) {
+        posted_stuff = req.body.stock_ticker;
+        res.render('home', {
+            stock: doneAPI,
+            posted_stuff: posted_stuff
+        });
+
+    });
+});
 //create about page route
 app.get('/about.html', (req, res) => {
     res.render('about');
